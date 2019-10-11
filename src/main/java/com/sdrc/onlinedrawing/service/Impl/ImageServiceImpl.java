@@ -37,4 +37,49 @@ public class ImageServiceImpl implements ImageService {
             return infoUtils;
         }
     }
+
+    /**
+     * 获取最新轮播图
+     * @return
+     */
+    @Override
+    public InfoUtils getNewEstImage() {
+        InfoUtils infoUtils = new InfoUtils();
+        try {
+            infoUtils.setObject(this.imageMapper.selectNewEstImage());
+        } catch (Exception e) {
+            logger.error("查询最新图片错误");
+            e.printStackTrace();
+        }
+        if (!StringUtils.isEmpty(infoUtils.getObject())){
+            infoUtils.setaBoolean(true);
+            infoUtils.setMessage("最新图片获取成功!");
+        }else{
+            infoUtils.setMessage("最新图片获取失败");
+            infoUtils.setaBoolean(false);
+        }
+        return infoUtils;
+    }
+
+    /**
+     * 获取最热轮播图
+     * @return
+     */
+    public InfoUtils getHotImageInfo() {
+        InfoUtils infoUtils = new InfoUtils();
+        try {
+            infoUtils.setObject(this.imageMapper.selectHotImageInfo());
+        } catch (Exception e) {
+            logger.error("查询最热轮播图报错");
+            e.printStackTrace();
+        }
+        if (!StringUtils.isEmpty(infoUtils.getObject())){
+            infoUtils.setaBoolean(true);
+            infoUtils.setMessage("获取最热轮播图成功");
+        }else{
+            infoUtils.setaBoolean(false);
+            infoUtils.setMessage("获取最热轮播图失败");
+        }
+        return infoUtils;
+    }
 }

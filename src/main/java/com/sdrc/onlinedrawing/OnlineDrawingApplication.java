@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan(basePackages = {"com.sdrc.onlinedrawing.mapper"})
 public class OnlineDrawingApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(OnlineDrawingApplication.class, args);
     }
