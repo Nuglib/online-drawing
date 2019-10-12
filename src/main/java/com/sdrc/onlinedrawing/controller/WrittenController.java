@@ -29,4 +29,10 @@ public class WrittenController {
     public InfoUtils getHotWrittenWord(){
         return this.writtenService.getHotWrittenWord();
     }
+
+    @RequestMapping(value = "getwrittenstyle",method = RequestMethod.GET)
+    @ApiOperation("获取文字风格")
+    public InfoUtils getWrittenStyleElementsGroupBy(){
+        return this.writtenService.getWrittenWordStyleElement();
+    }
 }

@@ -39,4 +39,10 @@ public class ImageController {
     public InfoUtils newHotImage(){
         return this.imageService.getHotImageInfo();
     }
+
+    @RequestMapping(value = "getimagestyleelement",method = RequestMethod.GET)
+    @ApiOperation(value = "获取风格元素")
+    public InfoUtils getStyleElementsGroupBy(){
+        return this.imageService.getStyleElementsGroup();
+    }
 }

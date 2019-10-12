@@ -49,3 +49,13 @@ spring:
         login-password: admin
         allow: 127.0.0.1
         #deny: 192.168.1.100
+  #上传限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+logging:
+  level:
+    java.sql: debug
+    com.apache.ibatis: debug
+    com.sdrc.onlinedrawing.mapper: debug
