@@ -5,6 +5,8 @@ package com.sdrc.onlinedrawing.util;
  */
 public class ImageUtils {
 
+
+
     //校验上传文件格式是否是图片
     public static Boolean checkImageFormat(String fileName){
         Boolean aBoolean = false;
@@ -17,4 +19,6 @@ public class ImageUtils {
         }
         return aBoolean;
     }
+
+
 }

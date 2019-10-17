@@ -69,10 +69,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -124,6 +120,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.sdrc.onlinedrawing.OnlineDrawingApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

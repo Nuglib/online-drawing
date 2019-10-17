@@ -1,7 +1,12 @@
 package com.sdrc.onlinedrawing.util;
 
-public class FileUtils {
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
+@Component
+public class FileUtils {
 
     /**
      * 获取文件后缀名
@@ -11,5 +16,15 @@ public class FileUtils {
         String[] strArray = fileName.split("\\.");
         int suffixIndex = strArray.length -1;
         return strArray[suffixIndex];
+    }
+
+
+    /**
+     * 保存文件方法
+     * @param multipartFile
+     * @return
+     */
+    public static File saveFile(MultipartFile multipartFile){
+        return null;
     }
 }
