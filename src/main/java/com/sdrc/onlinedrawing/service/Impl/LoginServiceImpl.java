@@ -93,4 +93,14 @@ public class LoginServiceImpl implements LoginService {
         }
         return infoUtils;
     }
+
+    /**
+     * 根据用户名获取用户信息
+     * @param userName
+     * @return
+     */
+    @Override
+    public UserAdmin getUserAdminInfoByUserName(String userName) {
+        return this.loginMapper.selectUserAdminByUserName(userName);
+    }
 }

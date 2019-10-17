@@ -30,6 +30,13 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
         <!--上传文件组件-->
         <dependency>
             <groupId>commons-fileupload</groupId>

@@ -1,13 +1,14 @@
 package com.sdrc.onlinedrawing.config;
 
-
-
+import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -39,5 +40,19 @@ public class Swagger2Config {
 //                .termsOfServiceUrl("https://www.cnblogs.com/xiebq/")
                 .version("1.0")
                 .build();
+    }
+
+    public static Docket initDocket() {
+        ParameterBuilder parameterBuilder = new ParameterBuilder();
+        List<springfox.documentation.service.Parameter> parameters = new ArrayList<>();
+        parameterBuilder.name("Authorization").description("token").modelRef(new ModelRef("string"))
+                .parameterType("header").required(false).build();
+        parameters.add(parameterBuilder.build());
+
+        Docket docket = new Docket(DocumentationType.SWAGGER_2).select()
+
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)).build()
+                .globalOperationParameters(parameters);
+        return docket;
     }
 }
