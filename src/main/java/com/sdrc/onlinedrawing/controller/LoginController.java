@@ -18,7 +18,7 @@ public class LoginController {
     @Resource
     private LoginService loginService;
 
-    @RequestMapping(value = "login",method = RequestMethod.GET)
+    @RequestMapping(value = "login",method = RequestMethod.POST)
     @ApiOperation(value = "登录接口")
     public InfoUtils login(@RequestParam(value = "username",required = true) String userName,
                            @RequestParam(value = "password",required = true) String passWord) throws Exception {

@@ -31,17 +31,17 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         response.setContentType("application/json; charset=utf-8");
         if (StringUtils.isEmpty(token)){
             response.getWriter().append("无token,请登录");
-            throw new RuntimeException("无token,请登录");
+            return false;
         }
         if (JwtUtil.isExpires(token)){
             response.getWriter().append("时间已经过时");
-            throw new RuntimeException("时间已经过时");
+            return false;
         } else{
             String userName= JwtUtil.getUsername(token);
             UserAdmin userAdmin = loginService.getUserAdminInfoByUserName(userName);
             if (org.springframework.util.StringUtils.isEmpty(userAdmin)){
                 response.getWriter().append("没有此用户信息,请登录");
-                throw new RuntimeException("没有此用户信息,请登录");
+                return false;
             }
         }
         return true;

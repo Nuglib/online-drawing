@@ -4,6 +4,7 @@ import com.sdrc.onlinedrawing.mapper.LoginMapper;
 import com.sdrc.onlinedrawing.pojo.UserAdmin;
 import com.sdrc.onlinedrawing.service.LoginService;
 import com.sdrc.onlinedrawing.util.InfoUtils;
+import com.sdrc.onlinedrawing.util.JwtUtil;
 import com.sdrc.onlinedrawing.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -40,9 +41,10 @@ public class LoginServiceImpl implements LoginService {
                 infoUtils.setMessage("密码错误！");
                 return infoUtils;
             }
-
+            String token = JwtUtil.createToken(userName);
             infoUtils.setMessage("登录成功！");
             infoUtils.setaBoolean(true);
+            infoUtils.setObject(token);
         }
         return infoUtils;
     }
